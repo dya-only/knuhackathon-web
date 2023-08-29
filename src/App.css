@@ -11,7 +11,6 @@ html, body {
   display: flex; /* 중앙 정렬을 위해 flexbox 사용 */
   align-items: center; /* 세로 중앙 정렬 */
   justify-content:center; /* 가로 중앙 정렬 */
-  min-height:100vh; /* 페이지 높이를 최소화하여 전체 화면 차지 */
 }
 
 .logo {
