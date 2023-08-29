@@ -1,17 +1,20 @@
-import './App.css'
+import { useGeolocated } from 'react-geolocated'
+import KakaoMap from './components/KakaoMap/component'
 
 function App() {
+  const { coords, isGeolocationAvailable, isGeolocationEnabled } = useGeolocated({
+    positionOptions: {
+      enableHighAccuracy: false,
+    },
+    userDecisionTimeout: 5000,
+  })
+  
   return (
-    <>
-      <div className="menu" >
-        <nav className="clearfix">
-          <ul className="clearfix">
-            <li className="titlefont"><a href="https://map.naver.com/p?c=15.00,0,0,0,dh"> 편할지도📍 </a></li>
-          </ul>
-          <a id="pull" href="#"></a>
-        </nav>
-      </div>
-    </>
+    !isGeolocationAvailable ? <div className='w-screen h-screen flex justify-center items-center bg-gray-800 text-white font-bold text-2xl'>사용자의 위치 정보를 가져올 수 없어요.</div> :
+      ! isGeolocationEnabled ? <div className='w-screen h-screen flex justify-center items-center bg-gray-800 text-white font-bold text-2xl'>사용자의 위치 정보를 가져올 수 없어요.</div> :
+      coords ?
+        <KakaoMap coords={coords} />
+      : <div className='w-screen h-screen flex justify-center items-center bg-gray-800 text-white font-bold text-2xl'>사용자의 위치 정보를 가져올 수 없어요.</div>
   )
 }
 
