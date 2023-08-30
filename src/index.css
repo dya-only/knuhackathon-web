@@ -38,22 +38,29 @@
 .animated {
   animation: BottomToTop;
   animation-duration: .3s;
-  animation-timing-function: ease-out;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+.unanimated {
+  animation: TopToBottom;
+  animation-duration: .3s;
+  animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 }
 
 .animatedBG {
   animation: ToDark;
   animation-duration: .3s;
-  animation-timing-function: ease-out;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+.unanimatedBG {
+  animation: ToWhite;
+  animation-duration: .3s;
+  animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 }
 
-.unanimated {
-  animation: TopToBottom;
-  animation-duration: .3s;
-  animation-timing-function: ease-out;
-}
 
 @keyframes BottomToTop {
   0% {
@@ -63,10 +70,9 @@
     transform: translateY(0%);
   }
 }
-
 @keyframes TopToBottom {
   0% {
-    transform: translateY(50%);
+    transform: translateY(0%);
   }
   100% {
     transform: translateY(100%);
@@ -78,6 +84,14 @@
     backdrop-filter: brightness(100%);
   }
   to {
-    backdrop-filter: brightness(80%);
+    backdrop-filter: brightness(90%);
+  }
+}
+@keyframes ToWhite {
+  from {
+    backdrop-filter: brightness(90%);
+  }
+  to {
+    backdrop-filter: brightness(100%);
   }
 }
