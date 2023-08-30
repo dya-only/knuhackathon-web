@@ -19,7 +19,6 @@ export default function KakaoMap (props: any) {
   const [map, setMap] = useState(null as any)
   const [selected, setSelected] = useState(false)
   const [created, setCreated] = useState(false)
-  const [markerInfo, setMarkerInfo] = useState('')
   const [selectedMarker, setSelectedMarker] = useState<any>({})
   const [newM, setNewM] = useState({ latitude: 0, longitude: 0 })
 
@@ -58,7 +57,7 @@ export default function KakaoMap (props: any) {
     console.log(map)
     
     // Current my location
-    const me = new kakao.maps.Marker({
+    new kakao.maps.Marker({
       map: kakaoMap,
       position: new kakao.maps.LatLng(props.coords.latitude, props.coords.longitude),
       image: new kakao.maps.MarkerImage(Smile, new kakao.maps.Size(40, 53)),
