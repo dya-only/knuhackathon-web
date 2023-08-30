@@ -6,6 +6,8 @@ import Nav from '../Nav/component'
 import Smile from '../../assets/imgs/smile.png'
 import New from '../../assets/imgs/new.png'
 import Xmark from '../../assets/svgs/xmark.svg'
+import Step from '../../assets/imgs/step.png'
+import Elevator from '../../assets/imgs/elevator.png'
 
 export default function KakaoMap (props: any) {
   const [map, setMap] = useState(null as any)
@@ -19,6 +21,8 @@ export default function KakaoMap (props: any) {
     const options = { center: new kakao.maps.LatLng(props.coords.latitude, props.coords.longitude), level: 4, disableDoubleClickZoom: true }
     const kakaoMap = new kakao.maps.Map(container, options)
     setMap(kakaoMap)
+
+    console.log(newM)
     console.log(map)
     
     // Current my location
@@ -40,7 +44,7 @@ export default function KakaoMap (props: any) {
     kakao.maps.event.addListener(kakaoMap, 'dblclick', function(event: { latLng: { La: number, Ma: number } }) {
       const latlng = event.latLng
 
-      const marker = new kakao.maps.Marker({
+      new kakao.maps.Marker({
         map: kakaoMap,
         position: new kakao.maps.LatLng(latlng.Ma, latlng.La),
         image: new kakao.maps.MarkerImage(New, new kakao.maps.Size(40, 53)),
@@ -72,12 +76,11 @@ export default function KakaoMap (props: any) {
         <div className={`animated overflow-y-auto rounded-t-[20px] fixed z-50 flex flex-col justify-start items-center shadow-2xl bg-white/70 backdrop-blur-xl md:w-[400px] lg:w-[400px] w-screen lg:h-screen md:h-screen h-[50%] mt-[120%] lg:mt-0 md:mt-0 p-4`}>
           <div className={'w-full flex justify-end mb-8'}><img className={'w-5 h-5'} src={ Xmark } onClick={() => { setCreated(false); window.location.href='/' } } /></div>
 
-          <p className={'text-2xl font- flex-wrap[600]'}>애니플러스 합정점</p>
-          <p className={'text-md mb-8'}>서울특별시 마포구 월드컵로3길 14</p>
+          <p className={'text-2xl font- flex-wrap[600] mb-8'}>애니플러스 합정점</p>
 
           <div className={'w-full flex flex-wrap items-center justify-center'}>
-            <button className={`drop-shadow-xl w-16 h-16 mr-3 ml-3 mb-4 rounded-xl bg-white`}></button>
-            <button className={`drop-shadow-xl w-16 h-16 mr-3 ml-3 mb-4 rounded-xl bg-white`}></button>
+            <button className={`drop-shadow-xl w-16 h-16 mr-3 ml-3 mb-4 rounded-xl bg-white p-4 flex justify-center items-center`}><img src={Step} /></button>
+            <button className={`drop-shadow-xl w-16 h-16 mr-3 ml-3 mb-4 rounded-xl bg-white p-4 flex justify-center items-center`}><img className={'w-6'} src={Elevator} /></button>
             <button className={`drop-shadow-xl w-16 h-16 mr-3 ml-3 mb-4 rounded-xl bg-white`}></button>
             <button className={`drop-shadow-xl w-16 h-16 mr-3 ml-3 rounded-xl bg-white`}></button>
             <button className={`drop-shadow-xl w-16 h-16 mr-3 ml-3 rounded-xl bg-white`}></button>
