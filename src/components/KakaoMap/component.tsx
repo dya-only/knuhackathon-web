@@ -23,7 +23,8 @@ export default function KakaoMap (props: any) {
   const [selectedMarker, setSelectedMarker] = useState<any>({})
   const [selectedData, setSelectedData] = useState<any>({})
   const [newPlace, setNewPlace] = useState({ placeName: '', latitude: 0, longitude: 0 })
-  
+  const [review, setReview] = useState<string[]>([])
+
   const [inputData, setInputData] = useState('')
   const [step, setStep] = useState(false)
   const [elevator, setElevator] = useState(false)
@@ -114,6 +115,8 @@ export default function KakaoMap (props: any) {
     .then(resp => {
       setSelectedData(resp.data)
       console.log(resp.data)
+
+      setReview(resp.data.reviews)
     })
   }
 
@@ -161,7 +164,7 @@ export default function KakaoMap (props: any) {
       : null }
 
       { selected ? 
-        <div className={`animated overflow-y-auto rounded-t-[20px] fixed z-50 flex flex-col justify-start items-center shadow-2xl bg-white/70 backdrop-blur-xl md:w-[400px] lg:w-[400px] w-screen lg:h-screen md:h-screen h-[50%] mt-[120%] lg:mt-0 md:mt-0 p-4`}>
+        <div className={`animated overflow-y-auto rounded-t-[20px] fixed z-50 flex flex-col justify-start items-center shadow-2xl bg-white/70 backdrop-blur-xl md:w-[400px] lg:w-[400px] w-screen lg:h-screen md:h-screen h-[50%] mt-[80%] lg:mt-0 md:mt-0 p-4`}>
           <div className={'w-full flex justify-end mb-8'}><img className={'w-5 h-5'} src={ Xmark } onClick={() => { setSelected(false) } } /></div>
 
           <p className={'text-2xl font-bold flex-wrap[600] mb-8'}>{ selectedMarker.placeName }</p>
@@ -242,9 +245,11 @@ export default function KakaoMap (props: any) {
             </button>
           </div>
 
-          { selectedData.reviews.map((el: string, idx: number) => {
-            <p key={idx}>{ el }</p>
-          }) }
+          <div className={'flex flex-col items-start mb-24'}>
+            { review.map((el: string, idx: number) => {
+              return <p className={'w-72 h-auto break-words rounded-2xl p-4 border-[1px] bg-white drop-shadow-xl text-black mb-4'} key={idx}>{ el }</p>
+            }) }
+          </div>
         </div>
       : <div className={`unanimated overflow-y-auto rounded-t-[20px] fixed z-50 flex flex-col justify-start items-center shadow-2xl bg-white/70 backdrop-blur-xl md:w-[400px] lg:w-[400px] w-screen lg:h-screen md:h-screen h-[50%] mt-[120%] lg:mt-0 md:mt-0 p-4`}></div>}
 
