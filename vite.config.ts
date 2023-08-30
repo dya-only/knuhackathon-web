@@ -17,6 +17,12 @@ export default defineConfig({
         changeOrigin: true,
         secure: false,
         ws: true
+      },
+      '/place': {
+        target: 'http://34.22.84.53',
+        changeOrigin: true,
+        secure: false,
+        ws: true
       }
     }
   }
