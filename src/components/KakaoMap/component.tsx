@@ -79,7 +79,7 @@ export default function KakaoMap (props: any) {
   }
 
   const getBFplace = async (id: string) => {
-    await axios.get(`/place/${id}`)
+    await axios.get(`/place/${id}/review`)
     .then(resp => {
       console.log(resp.data)
     })
