@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/maps/:path(.*)", "destination": "https://maps.googleapis.com/maps/:path" },
+    { "source": "/place/:path(.*)", "destination": "http://34.22.84.53/place/:path" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
