@@ -164,7 +164,7 @@ export default function KakaoMap (props: any) {
       : null }
 
       { selected ? 
-        <div className={`animated overflow-y-auto rounded-t-[20px] fixed z-50 flex flex-col justify-start items-center shadow-2xl bg-white/70 backdrop-blur-xl md:w-[400px] lg:w-[400px] w-screen lg:h-screen md:h-screen h-[50%] mt-[80%] lg:mt-0 md:mt-0 p-4`}>
+        <div className={`animated overflow-y-auto rounded-t-[20px] fixed z-50 flex flex-col justify-start items-center shadow-2xl bg-white/70 backdrop-blur-xl md:w-[400px] lg:w-[400px] w-screen lg:h-screen md:h-screen h-[80%] mt-[80%] lg:mt-0 md:mt-0 p-4`}>
           <div className={'w-full flex justify-end mb-8'}><img className={'w-5 h-5'} src={ Xmark } onClick={() => { setSelected(false) } } /></div>
 
           <p className={'text-2xl font-bold flex-wrap[600] mb-8'}>{ selectedMarker.placeName }</p>
@@ -250,6 +250,8 @@ export default function KakaoMap (props: any) {
               return <p className={'w-72 h-auto break-words rounded-2xl p-4 border-[1px] bg-white drop-shadow-xl text-black mb-4'} key={idx}>{ el }</p>
             }) }
           </div>
+
+          <div className='mb-12 mt-12'></div>
         </div>
       : <div className={`unanimated overflow-y-auto rounded-t-[20px] fixed z-50 flex flex-col justify-start items-center shadow-2xl bg-white/70 backdrop-blur-xl md:w-[400px] lg:w-[400px] w-screen lg:h-screen md:h-screen h-[50%] mt-[120%] lg:mt-0 md:mt-0 p-4`}></div>}
 
