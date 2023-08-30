@@ -34,3 +34,50 @@
   font-family: "Cafe24Ssurround";
   font-weight: bold;
 }
+
+.animated {
+  animation: BottomToTop;
+  animation-duration: .3s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.animatedBG {
+  animation: ToDark;
+  animation-duration: .3s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.unanimated {
+  animation: TopToBottom;
+  animation-duration: .3s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes BottomToTop {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes TopToBottom {
+  0% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes ToDark {
+  from {
+    backdrop-filter: brightness(100%);
+  }
+  to {
+    backdrop-filter: brightness(80%);
+  }
+}
