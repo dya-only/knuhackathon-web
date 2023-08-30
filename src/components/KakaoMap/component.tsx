@@ -135,6 +135,7 @@ export default function KakaoMap (props: any) {
     if (newPlace.placeName !== '') {
       await axios.post('/place', newPlace)
       .then(async (resp) => {
+        console.log(resp.data);
         await axios.post(`/place/${resp.data.id}/review`, { ramp: step, elevator, handiParking: parking, handiToilet: toilet, brailleBlock: block, brailleMap: notice, comment: '' })
         .then(_resp => console.log(_resp)).catch(console.error)
       }).catch(console.error)
